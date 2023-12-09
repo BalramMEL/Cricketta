@@ -1,0 +1,76 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+
+.custom-dropdown .dropdown-toggle {
+  color: white; /* Set the title color to white */
+}
+
+.custom-dropdown .dropdown-toggle:hover {
+  color: white; /* Set the hover color to match the regular color */
+  background-color: transparent; /* Set background-color to transparent on hover */
+}
+
+
+/* Loading */
+.loader-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.834);
+    z-index: 1;
+}
+
+.spinner {
+    width: 64px;
+    height: 64px;
+    border: 8px solid;
+    border-color: #3d5af1 transparent #3d5af1 transparent;
+    border-radius: 50%;
+    animation: spin-anim 1.2s linear infinite;
+}
+
+@keyframes spin-anim {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+/* Form */
+.register{
+box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+ border-radius: 15px;
+}
+
+
+/* Player Card */
+/* CSS - Adjust as needed */
+.card-container {
+  /* Your Container Styles */
+  /* ... */
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Adjust alignment */
+  gap: 20px; /* Adjust gap between cards */
+}
+
+.card-wrapper {
+  width: calc(25% - 20px); /* Adjust card width and gap */
+  /* 25% to display 4 cards in a row, change to 20% for 5 cards */
+  /* Add media queries for responsive design */
+}
+
+/* Add any additional styles for your Card component here */
+
+
