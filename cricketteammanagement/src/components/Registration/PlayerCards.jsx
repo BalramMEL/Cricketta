@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { fetchPlayerCards } from '../../services/RegistrationService';
 import dummyProfile from '../../images/dummyProfile.png'
 
+
 const PlayerCards = () => {
     const [player, setPlayer] = useState([]);
     const navigate = useNavigate();
