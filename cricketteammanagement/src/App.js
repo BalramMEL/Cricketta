@@ -7,6 +7,9 @@ import Registration from './components/Registration/PlayerRegistration.jsx';
 import TeamOne from './components/TeamOne/TeamOne.jsx';
 import Teams from './components/Teams/Teams.jsx';
 import PlayerCards from './components/Registration/PlayerCards.jsx';
+import { News } from './components/News/News.jsx';
+import { PointsTable } from './components/pointsTable/PointsTable.jsx';
+
 
 function App() {
   return (
@@ -20,6 +23,8 @@ function App() {
           <Route path='/teams' element={<Teams />}></Route>
           {/* <Route path='/teams/csk' element={<TeamOne />}></Route> */}
           <Route path='/player' element={<PlayerCards />}></Route>
+          <Route path='/news' element={<News/>}></Route>
+          <Route path='/pointsTable' element={<PointsTable/>}></Route>
           
           <Route></Route>
           <Route></Route>

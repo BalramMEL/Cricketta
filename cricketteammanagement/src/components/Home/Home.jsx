@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import MyCarousel from '../MyCarousel'
 import GroupExample from '../GroupExample'
 import Footer from '../Footerr/Footerr';
+import AboutUs from '../aboutUs/AboutUs';
 
 
 const Home = () => {
@@ -24,6 +25,7 @@ const Home = () => {
           <>
             <MyCarousel />
               <GroupExample />
+              <AboutUs />
               <Footer />
           </>
       )
