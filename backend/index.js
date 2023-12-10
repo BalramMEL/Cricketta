@@ -3,7 +3,7 @@
 // import { StatusCodes } from 'http-status-codes';
 // import { DELETE_SUCCESS, ERROR_MESSAGE, INSERT_SUCCESS, STUDENT_NOT_FOUND, UPDATE_SUCCESS } from './constants.js';
 // import { Register } from './RegistrationModel.js';
-import cors from 'cors';
+
 
 // const app = express(); 
 //  app.use(express.json);
@@ -49,7 +49,9 @@ import express, { response } from 'express';
 import mongoose from 'mongoose';
 import { StatusCodes } from 'http-status-codes';
 import { DELETE_SUCCESS, ERROR_MESSAGE, INSERT_SUCCESS, STUDENT_NOT_FOUND, UPDATE_SUCCESS } from './constants.js';
-import { Register } from './RegistrationModel.js';
+import { Register, TeamCard } from './RegistrationModel.js';
+import cors from 'cors';
+import multer from 'multer';
 
 const app = express(); 
 app.use(express.json());
@@ -69,15 +71,36 @@ app.listen(4005, () => {
     connectDB();
 })
 
-app.post("/player", async (request, response) => {
-    try {
-        const reqData = request.body;
-        const register = new Register(reqData);
-      const savedData = await register.save();
-        return response.status(StatusCodes.CREATED).send(savedData);
-    } catch (error) {
-        response.status(StatusCodes.INTERNAL_SERVER_ERROR).send({message:ERROR_MESSAGE});
-    }
+// const multer = require('multer');
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'images')
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() 
+    cb(null, uniqueSuffix + file.originalname);
+  }
+})
+
+const upload = multer({ storage: storage })
+
+app.post("/player", upload.single("image"), async (request, response) => {
+    // try {
+    //      const imageName = request.file.filename;        
+        
+    //     const reqData = request.body;
+    //     reqData.image = imageName;
+
+    //     const register = new Register(reqData);
+    //     const savedData = await register.save();
+
+    //     return response.status(StatusCodes.CREATED).send(savedData);
+    // } catch (error) {
+    //     response.status(StatusCodes.INTERNAL_SERVER_ERROR).send({message:ERROR_MESSAGE});
+    // }
+    console.log(request.body)
+    console.log(request.file)
 });
 
 app.get("/player", async (request, response) => {
@@ -88,6 +111,48 @@ app.get("/player", async (request, response) => {
         response.status(StatusCodes.INTERNAL_SERVER_ERROR).send({message:ERROR_MESSAGE}); 
     }
 })
+
+
+app.post("/teams", async (request, response) => {
+    try {
+        const reqData = request.body;
+        const team = new TeamCard(reqData);
+        const saveData = await team.save();
+        return response.status(StatusCodes.CREATED).send(saveData);
+    } catch (error) {
+        response.status(StatusCodes.INTERNAL_SERVER_ERROR).send({message:ERROR_MESSAGE});        
+    }
+})
+
+app.get("/teams", async (request, response) => {
+    try {
+        const teams = await TeamCard.find();
+        response.send({teams: teams})
+    } catch (error) {
+        response.status(StatusCodes.INTERNAL_SERVER_ERROR).send({message:ERROR_MESSAGE});         
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

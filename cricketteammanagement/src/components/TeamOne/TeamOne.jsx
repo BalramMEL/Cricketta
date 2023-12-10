@@ -7,3 +7,6 @@ const TeamOne = () => {
 }
 
 export default TeamOne
+
+
+

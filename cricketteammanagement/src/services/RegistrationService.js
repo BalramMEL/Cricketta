@@ -13,7 +13,7 @@ export async function fetchPlayerCards() {
 
 export async function savePlayerCard(playerData) {
     try {
-        const response = await axios.post(`${BASE_URL}/player`, playerData);
+        const response = await axios.post(`${BASE_URL}/player`, playerData, {headers: {"Content-Type": "multipart/form-data"}});
         return response.data;
     } catch (error) {
         console.log(error);
