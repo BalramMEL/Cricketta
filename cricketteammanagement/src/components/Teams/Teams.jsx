@@ -42,7 +42,7 @@ export function Teams() {
 
     <div className="text-center" style={{backgroundImage:
       `url(${background})`,backgroundSize: 'cover'}}>
-      <div style={{backgroundColor:'orangered',height:'55px'}}><h1 style={{textAlign:'center', fontFamily:'poppins',color:'white'}}>- SQUADS -</h1></div>
+      <div style={{backgroundColor:'orangered',height:'55px'}}><h1 style={{textAlign:'center', fontFamily:'poppins',color:'white'}}> SQUADS </h1></div>
 
       <Container className='mt '>
         <Row xs={1} md={2} className="g-4 mx-auto justify-content-center" style={{ paddingTop: '20px', paddingBottom: '20px' }}>

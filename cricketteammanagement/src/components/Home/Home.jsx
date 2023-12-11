@@ -24,7 +24,7 @@ const Home = () => {
         ) : (
           <>
             <MyCarousel />
-              <GroupExample />
+              {/* <GroupExample /> */}
               <AboutUs />
               <Footer />
           </>

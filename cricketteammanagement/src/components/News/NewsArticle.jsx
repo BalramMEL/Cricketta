@@ -30,7 +30,7 @@ const NewsArticle = (props) => {
                     <Card.Text>
                         {shortenedDescription}
                     </Card.Text>
-                    <Button variant="primary" className='mt-2' onClick={openFullArticle}>Read full article</Button>
+                    <Button style={{backgroundColor: "#030f27",color: "#fdbe33", marginLeft:'60px'}} className='mt-2' onClick={openFullArticle}>Read full article</Button>
                 </Card.Body>
             </Card>
         </Col>

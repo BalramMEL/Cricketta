@@ -58,13 +58,13 @@ const Registration = () => {
               <Form.Label as="legend" column >
                First Name : 
               </Form.Label>
-               <Form.Control placeholder="First name" type='text' name='firstName' onKeyUp={handleChange}/>       
+               <Form.Control placeholder="First name" type='text' name='firstName' onChange={handleChange}/>       
           </Col>
           <Col>        
               <Form.Label as="legend" column>
                 Last Name : 
               </Form.Label>               
-          <Form.Control placeholder="Last name" type='text' name='lastName' onKeyUp={handleChange}/>
+          <Form.Control placeholder="Last name" type='text' name='lastName' onChange={handleChange}/>
         
         </Col>
       </Row>
@@ -79,23 +79,23 @@ const Registration = () => {
           <Form.Check
             type="radio"
             label="Batsman"
-            value="batsman"
+            value="Batsman"
             name="position"
             id="position1"
-            onKeyUp={handleChange}
+            onChange={handleChange}
           />
           <Form.Check
             type="radio"
             label="Wk-Batsman"
-            value="wk-batsman"
+            value="wk-Batsman"
             name="position"
             id="position2"
-            onKeyUp={handleChange}
+            onChange={handleChange}
           />
           <Form.Check
             type="radio"
             label="All-Rounder"
-            value="all-rounder"
+            value="All-Rounder"
             name="position"
             id="position3"
             onChange={handleChange}
@@ -103,7 +103,7 @@ const Registration = () => {
           <Form.Check
             type="radio"
             label="Bowler"
-            value="bowler"
+            value="Bowler"
             name="position"
             id="position4"
             onChange={handleChange}
@@ -127,7 +127,7 @@ const Registration = () => {
           <div className='d-flex align-items-center justify-content-start gap-4 mt-4'>
             <Form.Label >Country :</Form.Label>
             <div>
-              <Form.Control placeholder="Country" type='text' name='country' onKeyUp={handleChange}/> 
+              <Form.Control placeholder="Country" type='text' name='Country' onChange={handleChange}/> 
             </div>           
           </div>
 

@@ -2,6 +2,7 @@ import React from 'react';
 import './AboutUs.css';
 import vaishnavi from '../../images/vaishphoto.jpg';
 import shubham from '../../images/DSC_0139.png';
+import balram from '../../images/balram.png'
 import '@fortawesome/fontawesome-free/css/all.css';
 
 export const AboutUs = () => {
@@ -19,7 +20,7 @@ export const AboutUs = () => {
             role="CDAC Mumbai"
           />
           <TeamMember
-            imgSrc={shubham}
+            imgSrc={balram}
             name="Balram Melkunde"
             role="CDAC Mumbai"
           />
@@ -46,9 +47,9 @@ export const TeamMember = ({ imgSrc, name, role }) => {
           <p>{role}</p>
         </div>
         <div className="team-social">
-          <a className="social-tw" href="/"><i className="fab fa-twitter"></i></a>
+          <a className="social-tw" href="https://twitter.com/MelkundeBalram"><i className="fab fa-twitter"></i></a>
           <a className="social-fb" href="/"><i className="fab fa-facebook-f"></i></a>
-          <a className="social-li" href="/"><i className="fab fa-linkedin-in"></i></a>
+          <a className="social-li" href="https://www.linkedin.com/in/balram-melkunde/"><i className="fab fa-linkedin-in"></i></a>
           <a className="social-in" href="/"><i className="fab fa-instagram"></i></a>
         </div>
       </div>

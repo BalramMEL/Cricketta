@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import { fetchPlayerById, savePlayerCard, updatePlayer } from '../../services/RegistrationService';
 
 const PlayerUpdateForm = () => { 
-    const params = useParams();
+const params = useParams();
   const [file, setFile] = useState();
   const [formData, setFormData] = useState({ firstName: "", lastName: "" ,country: "",position: ""});
   const [isSubmitted, setIsSubmitted] = useState(false);
