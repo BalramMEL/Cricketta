@@ -78,6 +78,9 @@ box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
 /* Add any additional styles for your Card component here */
 
 /* Points Tabel */
-.tableActive:hover{
-  background-color: blue;
+
+.teamCard{
+  box-shadow: rgba(17, 17, 214, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
+
+/* Navigation Bar */
