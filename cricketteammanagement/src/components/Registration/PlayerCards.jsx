@@ -47,15 +47,15 @@ const PlayerCards = () => {
 
   return (
       <>
-          <Container className='card-container'>              
+          <Container className='card-container '>              
               
-            <Header text="Batter"></Header>
+            <Header text="Player Card " className="mb-5 "></Header>
               {
                 player.length !== 0 ? <div className='card-grid'>
                       {
                           player.map((players) => {
                               return (
-                                  <div className='card-wrapper'>                                    
+                                  <div className='card-wrapper mt-5'>                                    
                                     
                                        <Card style={{ width: '13rem'}} key={players._id}>
                                         <Card.Img variant="top" src={dummyProfile}/>

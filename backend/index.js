@@ -109,9 +109,9 @@ app.put("/player/:_id", async (request, response) => {
     }
 })
 
-app.get("/player/:_Id",async(request,response)=>{
+app.get("/player/:_id",async(request,response)=>{
     try {
-       const player=await Register.findOne({roll:request.params.roll});
+       const player=await Register.findOne({Id:request.params._id});
        if (player==null) {
         response.status(StatusCodes.NOT_FOUND).send({message:STUDENT_NOT_FOUND});
        }
