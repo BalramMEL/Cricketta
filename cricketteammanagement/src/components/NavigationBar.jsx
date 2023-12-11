@@ -12,12 +12,19 @@ import SearchBar from './SearchBar';
 
 
 const NavigationBar = () => {
+
+  	const handleLogout = () => {
+		localStorage.removeItem("token");
+		window.location.reload();
+	};
+
+
   return (
-    <Navbar expand="md" className="py-2 px-5 sticky-top" style={{backgroundColor: "#19398A", zIndex: "1000"}}>
+    <Navbar expand="md" className="py-2 px-5 sticky-top" style={{backgroundColor: "#030f27", zIndex: "1000"}}>
       <Container fluid>
         <Navbar.Brand className="pr-7">
           <LinkContainer to="/">
-              <Nav.Link><img src={require('../images/MI.png')} alt="Logo" height="50" width="110" /></Nav.Link>
+              <Nav.Link><img src={require('../images/ipl.png')} alt="Logo" height="50" width="110" /></Nav.Link>
            </LinkContainer>
             
           
@@ -25,37 +32,37 @@ const NavigationBar = () => {
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
-            className="mx-auto my-2 my-lg-0 gap-5"  // mx-auto to center the content horizontally
+            className="mx-auto my-2 my-lg-0 gap-5 "  // mx-auto to center the content horizontally
             style={{ maxHeight: '100px', fontFamily: "poppins", fontWeight: 600, alignItems: 'center',fontSize:17,wordSpacing:2, justifyContent: 'center'}}
             navbarScroll
           >
-            <LinkContainer to='/' style={{color: "#FFFBF5"}}>
+            <LinkContainer className='navigation' to='/' style={{color: "#fdbe33"}}>
               <Nav.Link>Home</Nav.Link>
             </LinkContainer>
-            <LinkContainer to='/teams' style={{color: "#FFFBF5"}}>
+            <LinkContainer to='/teams' className='navigation' style={{color: "#fdbe33"}}>
               <Nav.Link>Teams</Nav.Link>              
             </LinkContainer>
-            <LinkContainer to='/pointsTable'  style={{color: "#FFFBF5"}}>
+            <LinkContainer to='/pointsTable' className='navigation' style={{color: "#fdbe33"}}>
               <Nav.Link >Points Table</Nav.Link>
             </LinkContainer>
-            <LinkContainer to='/News' style={{color: "#FFFBF5"}}>
+            <LinkContainer to='/News' className='navigation'  style={{color: "#fdbe33"}}>
               <Nav.Link >News</Nav.Link>
             </LinkContainer>
-            <LinkContainer to='/registration' style={{color: "#FFFBF5"}}>
+            <LinkContainer to='/registration' className='navigation' style={{color: "#fdbe33"}}>
               <Nav.Link >Registration</Nav.Link>
             </LinkContainer>
 
            
               <NavDropdown title="More" id="navbarScrollingDropdown" className="custom-dropdown">
-                <NavDropdown.Item >Book Tickets</NavDropdown.Item>
-                <NavDropdown.Item >Buy jersey</NavDropdown.Item>
-                {/* <NavDropdown.Divider /> */}
-                <NavDropdown.Item >Interviews/Videos</NavDropdown.Item>
+                <NavDropdown.Item >Sign up</NavDropdown.Item>
+                <NavDropdown.Item >Log in</NavDropdown.Item>
+                <NavDropdown.Item onClick={handleLogout}>Log out</NavDropdown.Item>
+              
+                
               </NavDropdown>              
             
           </Nav>
-          {/* <Nav className="mr-5"> */}
-          {/* </Nav> */}
+       
           <Form className="d-flex flex-column align-items-center" >         
             <SearchBar />
           </Form>

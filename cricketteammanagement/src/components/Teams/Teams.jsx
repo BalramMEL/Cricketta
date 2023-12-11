@@ -1,67 +1,70 @@
-import React, { useEffect, useState } from 'react'
-import {Header} from "../Header";
-import { Card, Container } from 'react-bootstrap'
+import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import mainbackground from "../../images/Dharmashala.jpg";
+import background from "../../images/HPCA.jpg";
+import Rohit from "../../images/Rohit.jpg";
+import MS from "../../images/MS.png";
+import Markram from "../../images/Markram.png";
+import VK from "../../images/VK.png";
+import Iyer from "../../images/Iyer.png";
+import KL from "../../images/KL.jpg";
+import Warner from "../../images/Warner.png";
+import Dhawan from "../../images/Dhawan.jpg";
+import Gill from "../../images/Gill.jpg";
+import Sanju from "../../images/Sanju Samson.png"
 import { useNavigate } from 'react-router-dom';
-import { fetchPlayerCards } from '../../services/RegistrationService';
-import dummyProfile from '../../images/dummyProfile.png'
-import { fetchTeamCards } from '../../services/TeamsService';
 
+const teamData = [
+  { id: 1, title: 'MUMBAI INDIANS', image: Rohit},
+  { id: 2, title: 'CHENNAI SUPER KINGS', image: MS},
+  { id: 3, title: 'SUNRISERS HYDERABAD', image: Markram},
+  { id: 4, title: 'ROYAL CHALLENGERS BANGALORE', image: VK },
+  { id: 5, title: 'KOLKATTA KNIGHT RIDERS', image: Iyer },
+  { id: 6, title: 'LUCKNOW SUPER GIANTS', image: KL },
+  { id: 7, title: 'DELHI CAPITALS', image: Warner },
+  { id: 8, title: 'PUNJAB KINGS', image: Dhawan },
+  { id: 9, title: 'GUJARAT TITANS', image: Gill },
+  { id: 10, title: 'RAJASTHAN ROYALS', image: Sanju },
+];
 
-const Teams = () => {
-    const [team, setTeam] = useState([]);
+export function Teams() {
     const navigate = useNavigate();
 
-    async function populateTeamState() {
-         try {
-             const data = await fetchTeamCards();
-             console.log(data);
-             setTeam(data.teams);
-         } catch (error) {
-            console.log(error);
-         }
-    }
-    
-    useEffect(() => {
-        populateTeamState();
-    }, [])
-
-  const handleClick = () => {
-    navigate("/player");
+  function handleNavigation() {
+      navigate('/player');
   }
 
   return (
-      <>
-          <Container className='card-container'>
-              
-              
-            <Header text="Teams"></Header>
-              {
-                 Array.isArray(team) && team.length > 0 ?<div className='card-grid'>
-                      {
-                          team.map((teams) => {
-                              return (
-                                  <div className='card-wrapper'>{                                      
-                                    //  players.length !== 0 && players.position === 'batsman' ?
-                                       <Card style={{ width: '13rem'}} key={teams.id} onClick={handleClick}>
-                                        <Card.Img variant="top" src={dummyProfile}/>
-                                        <Card.Body className='d-flex align-items-center' style={{flexDirection: "column"}}>
-                                              <Card.Title style={{ fontFamily: "sans-serif", fontSize: "1rem", fontWeight: "700" }}>
-                                                  {teams.teamName} </Card.Title>
-                                           
-                                            {/* <Button variant="primary">Go somewhere</Button> */}
-                                        </Card.Body>
-                                          </Card> 
-                                  }
-                                  </div>                            
-           
-                            )
-                        })  
-                        }
-                  </div> : <p>No Team found..</p>
-              }
-        </Container>
-      </>
+    
+
+    <div className="text-center" style={{backgroundImage:
+      `url(${background})`,backgroundSize: 'cover'}}>
+      <div style={{backgroundColor:'orangered',height:'55px'}}><h1 style={{textAlign:'center', fontFamily:'poppins',color:'white'}}>- SQUADS -</h1></div>
+
+      <Container className='mt '>
+        <Row xs={1} md={2} className="g-4 mx-auto justify-content-center" style={{ paddingTop: '20px', paddingBottom: '20px' }}>
+          {teamData.map((team) => (
+            <Col key={team.id} className="d-flex justify-content-center" onClick={handleNavigation}>
+              {/* Add 'd-flex justify-content-center' for centering */}
+              <Card className='teamCard' style={{ width: '30rem', textAlign: 'center',backgroundImage:
+      `url(${mainbackground})`}}>
+                <div className="d-flex justify-content-center align-items-center" style={{ height: '200px' }}>
+                  <Card.Img                    
+                    variant="top"
+                    style={{ height: '200px', width: '220px' }}
+                    src={team.image} />
+                </div>
+                <Card.Body>
+                  <Card.Title style={{ fontFamily: 'Oswald' }}><button style={{borderRadius:'6px', height:'50px',border:'none',backgroundColor:'gold'}}>{team.title}</button></Card.Title>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    </div>
   )
 }
-
-export default Teams

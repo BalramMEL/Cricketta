@@ -7,26 +7,26 @@ import { savePlayerCard } from '../../services/RegistrationService';
 
 const Registration = () => { 
   const [file, setFile] = useState();
-  const [formData, setFormData] = useState({ firstName: "", lastName: "" ,country: "",position: "", image: ""});
+  const [formData, setFormData] = useState({ firstName: "", lastName: "" ,country: "",position: ""});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e) => {
-  if (e.target.type === 'file') {
-    console.log(e.target.files[0]);
-    const selectedFile = e.target.files[0];
+  // if (e.target.type === 'file') {
+  //   console.log(e.target.files[0]);
+  //   const selectedFile = e.target.files[0];
 
-    if (selectedFile) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        setFile(reader.result);
-      };
-      reader.readAsDataURL(selectedFile);
-    } else {
-      setFile(null); // Clear file if no file is selected
-    }
-  } else {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-    }
+  //   if (selectedFile) {
+  //     const reader = new FileReader();
+  //     reader.onload = () => {
+  //       setFile(reader.result);
+  //     };
+  //     reader.readAsDataURL(selectedFile);
+  //   } else {
+  //     setFile(null); // Clear file if no file is selected
+  //   }
+  // } else {
+  //   setFormData({ ...formData, [e.target.name]: e.target.value });
+  //   }
     setFormData({ ...formData, [e.target.name]: e.target.value });
 };
 
@@ -36,7 +36,7 @@ const Registration = () => {
      //formData.append('image', image)
       const result = await savePlayerCard(formData);
      
-      setFormData({ firstName: "", lastName: "" ,country: "",position: "", image:""});
+      setFormData({ firstName: "", lastName: "" ,country: "",position: ""});
       setIsSubmitted(true);
       setTimeout(() => {
         setIsSubmitted(false);
@@ -110,8 +110,9 @@ const Registration = () => {
           />
         </div>
       </Form.Group>
-    </fieldset> 
-        
+          </fieldset> 
+          
+{/*         
           <div className='d-flex align-items-center gap-4 '>
             <Form.Label >
               Add image : 
@@ -119,9 +120,9 @@ const Registration = () => {
 
             <div>
               <input type="file" name="image" onChange={handleChange} /> 
-              {/* <img src={file} /> */}
+              <img src={file} />
             </div>
-          </div>
+          </div> */}
           
           <div className='d-flex align-items-center justify-content-start gap-4 mt-4'>
             <Form.Label >Country :</Form.Label>
@@ -138,7 +139,7 @@ const Registration = () => {
         </Form>
             <Row className="mt-3">
                 <Col lg={4}>
-                    {isSubmitted?<Alert variant="success">Student Registered</Alert>:null}
+                    {isSubmitted?<Alert className='d-flex' style={{textAlign: 'center', paddingLeft:'7px'}} variant="success">Player Registered</Alert>:null}
                 </Col>
             </Row>
       </Container>

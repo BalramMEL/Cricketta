@@ -13,7 +13,34 @@ export async function fetchPlayerCards() {
 
 export async function savePlayerCard(playerData) {
     try {
-        const response = await axios.post(`${BASE_URL}/player`, playerData, {headers: {"Content-Type": "multipart/form-data"}});
+        const response = await axios.post(`${BASE_URL}/player`, playerData);
+        return response.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export async function deletePlayer(_id) {
+    try {
+        const response=await axios.delete(`${BASE_URL}/player/${_id}`);
+        return response.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export async function updatePlayer(updatedData,_id){
+    try {
+        const response=await axios.put(`${BASE_URL}/player/${_id}`,updatedData);
+        return response.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export async function fetchPlayerById(_Id){
+    try {
+        const response=await axios.get(`${BASE_URL}/player/${_Id}`);
         return response.data;
     } catch (error) {
         console.log(error);
