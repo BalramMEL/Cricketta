@@ -1,15 +1,19 @@
 
-import express, { response } from 'express';
+import express from 'express';
 import mongoose from 'mongoose';
 import { StatusCodes } from 'http-status-codes';
 import { DELETE_SUCCESS, ERROR_MESSAGE, INSERT_SUCCESS, STUDENT_NOT_FOUND, UPDATE_SUCCESS } from './constants.js';
-import { Register, TeamCard } from './RegistrationModel.js';
+import { Register } from './models/RegistrationModel.js';
 import cors from 'cors';
-import multer from 'multer';
+
+
 
 const app = express(); 
 app.use(express.json());
 app.use(cors());
+
+
+
 
 const connectDB = async () => {
     try {
@@ -27,34 +31,32 @@ app.listen(4005, () => {
 
 // const multer = require('multer');
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'images')
-  },
-  filename: function (req, file, cb) {
-    const uniqueSuffix = Date.now() 
-    cb(null, uniqueSuffix + file.originalname);
-  }
-})
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, "images/")
+//   },
+//   filename: function (req, file, cb) {
+//     const uniqueSuffix = Date.now() 
+//     cb(null, uniqueSuffix + file.originalname);
+//   }
+// })
 
-const upload = multer({ storage: storage })
+// const upload = multer({ storage: storage })
 
-app.post("/player", upload.single("image"), async (request, response) => {
-    // try {
-    //      const imageName = request.file.filename;        
+app.post("/player", async (request, response) => {
+    try {
+                
+        const reqData = request.body;
         
-    //     const reqData = request.body;
-    //     reqData.image = imageName;
 
-    //     const register = new Register(reqData);
-    //     const savedData = await register.save();
+        const register = new Register(reqData);
+        const savedData = await register.save();
 
-    //     return response.status(StatusCodes.CREATED).send(savedData);
-    // } catch (error) {
-    //     response.status(StatusCodes.INTERNAL_SERVER_ERROR).send({message:ERROR_MESSAGE});
-    // }
-    console.log(request.body)
-    console.log(request.file)
+        return response.status(StatusCodes.CREATED).send(savedData);
+    } catch (error) {
+        response.status(StatusCodes.INTERNAL_SERVER_ERROR).send({message:ERROR_MESSAGE});
+    }
+    
 });
 
 app.get("/player", async (request, response) => {
@@ -65,6 +67,8 @@ app.get("/player", async (request, response) => {
         response.status(StatusCodes.INTERNAL_SERVER_ERROR).send({message:ERROR_MESSAGE}); 
     }
 })
+
+
 
 
 app.post("/teams", async (request, response) => {
@@ -87,7 +91,38 @@ app.get("/teams", async (request, response) => {
     }
 })
 
+app.delete("/player/:_id", async (request, response) => {
+    try {
+        await Register.deleteOne({ _id: request.params._id });
+        response.send({message:DELETE_SUCCESS});
+    } catch (error) {
+        response.status(StatusCodes.INTERNAL_SERVER_ERROR).send({message:ERROR_MESSAGE});
+    }
+})
 
+app.put("/player/:_id", async (request, response) => {
+    try {
+        await Register.updateOne({_id: request.params._id},request.body);
+        response.send({message:UPDATE_SUCCESS});
+    } catch (error) {
+        response.status(StatusCodes.INTERNAL_SERVER_ERROR).send({message:ERROR_MESSAGE});
+    }
+})
+
+app.get("/player/:_Id",async(request,response)=>{
+    try {
+       const player=await Register.findOne({roll:request.params.roll});
+       if (player==null) {
+        response.status(StatusCodes.NOT_FOUND).send({message:STUDENT_NOT_FOUND});
+       }
+       else{
+         response.send({player:player});
+       }
+       
+    } catch (error) {
+        response.status(StatusCodes.INTERNAL_SERVER_ERROR).send({message:ERROR_MESSAGE});
+    }
+});
 
 
 
