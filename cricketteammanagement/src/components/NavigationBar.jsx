@@ -32,7 +32,7 @@ const NavigationBar = () => {
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
-            className="mx-auto my-2 my-lg-0 gap-5 "  // mx-auto to center the content horizontally
+            className="mx-auto my-2 my-lg-0 gap-5 sm:gap-1 "  // mx-auto to center the content horizontally
             style={{ maxHeight: '100px', fontFamily: "poppins", fontWeight: 600, alignItems: 'center',fontSize:17,wordSpacing:2, justifyContent: 'center'}}
             navbarScroll
           >

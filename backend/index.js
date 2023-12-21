@@ -5,15 +5,11 @@ import { StatusCodes } from 'http-status-codes';
 import { DELETE_SUCCESS, ERROR_MESSAGE, INSERT_SUCCESS, STUDENT_NOT_FOUND, UPDATE_SUCCESS } from './constants.js';
 import { Register } from './models/RegistrationModel.js';
 import cors from 'cors';
-
-
+;
 
 const app = express(); 
 app.use(express.json());
 app.use(cors());
-
-
-
 
 const connectDB = async () => {
     try {
@@ -44,10 +40,8 @@ app.listen(4005, () => {
 // const upload = multer({ storage: storage })
 
 app.post("/player", async (request, response) => {
-    try {
-                
-        const reqData = request.body;
-        
+    try {                
+        const reqData = request.body;        
 
         const register = new Register(reqData);
         const savedData = await register.save();
@@ -56,7 +50,6 @@ app.post("/player", async (request, response) => {
     } catch (error) {
         response.status(StatusCodes.INTERNAL_SERVER_ERROR).send({message:ERROR_MESSAGE});
     }
-    
 });
 
 app.get("/player", async (request, response) => {
@@ -68,28 +61,6 @@ app.get("/player", async (request, response) => {
     }
 })
 
-
-
-
-app.post("/teams", async (request, response) => {
-    try {
-        const reqData = request.body;
-        const team = new TeamCard(reqData);
-        const saveData = await team.save();
-        return response.status(StatusCodes.CREATED).send(saveData);
-    } catch (error) {
-        response.status(StatusCodes.INTERNAL_SERVER_ERROR).send({message:ERROR_MESSAGE});        
-    }
-})
-
-app.get("/teams", async (request, response) => {
-    try {
-        const teams = await TeamCard.find();
-        response.send({teams: teams})
-    } catch (error) {
-        response.status(StatusCodes.INTERNAL_SERVER_ERROR).send({message:ERROR_MESSAGE});         
-    }
-})
 
 app.delete("/player/:_id", async (request, response) => {
     try {
@@ -130,6 +101,25 @@ app.get("/player/:_id",async(request,response)=>{
 
 
 
+// app.post("/teams", async (request, response) => {
+//     try {
+//         const reqData = request.body;
+//         const team = new TeamCard(reqData);
+//         const saveData = await team.save();
+//         return response.status(StatusCodes.CREATED).send(saveData);
+//     } catch (error) {
+//         response.status(StatusCodes.INTERNAL_SERVER_ERROR).send({message:ERROR_MESSAGE});        
+//     }
+// })
+
+// app.get("/teams", async (request, response) => {
+//     try {
+//         const teams = await TeamCard.find();
+//         response.send({teams: teams})
+//     } catch (error) {
+//         response.status(StatusCodes.INTERNAL_SERVER_ERROR).send({message:ERROR_MESSAGE});         
+//     }
+// })
 
 
 

@@ -1,0 +1,93 @@
+/* Champions.css */
+
+.service {
+    position: relative;
+    width: 100%;
+    padding: 45px 0 15px 0;
+  }
+  
+  .service .service-item {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .service .service-img {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .service .service-img img {
+    max-width: 100%; /* Set maximum width to 100% */
+    max-height: 200px; /* Set maximum height as needed */
+    object-fit: cover; /* Maintain aspect ratio while fitting within dimensions */
+  }
+
+  
+  .service .service-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(3, 15, 39, .7);
+    transition: .5s;
+    opacity: 0;
+  }
+  
+  .service .service-item:hover .service-overlay {
+    opacity: 1;
+  }
+  
+  .service .service-overlay p {
+    margin: 0;
+    color: #ffffff;
+  }
+  
+  .service .service-text {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    background: #030f27;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  .service .service-text h3 {
+    margin: 0;
+    padding: 0 15px 0 25px;
+    width: calc(100% - 60px);
+    font-size: 20px;
+    font-weight: 700;
+    color: #fdbe33;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  .service .service-item a.btn {
+    width: 60px;
+    height: 60px;
+    padding: 3px 0 0 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    line-height: 60px;
+    font-weight: 100;
+    color: #030f27;
+    background: #fdbe33;
+    border-radius: 0;
+    transition: .3s;
+  }
+  
+  .service .service-item:hover a.btn {
+    color: #ffffff;
+}

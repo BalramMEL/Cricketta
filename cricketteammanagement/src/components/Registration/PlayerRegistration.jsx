@@ -127,7 +127,7 @@ const Registration = () => {
           <div className='d-flex align-items-center justify-content-start gap-4 mt-4'>
             <Form.Label >Country :</Form.Label>
             <div>
-              <Form.Control placeholder="Country" type='text' name='Country' onChange={handleChange}/> 
+              <Form.Control placeholder="Country" type='text' name='country' onChange={handleChange}/> 
             </div>           
           </div>
 

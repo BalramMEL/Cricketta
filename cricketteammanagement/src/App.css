@@ -65,14 +65,20 @@ box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
 .card-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* Adjust alignment */
+  /* justify-content: space-around; Adjust alignment */
   gap: 20px; /* Adjust gap between cards */
 }
 
 .card-wrapper {
-  width: calc(25% - 20px); /* Adjust card width and gap */
+  width: calc(20% - 20px); /* Adjust card width and gap */
   /* 25% to display 4 cards in a row, change to 20% for 5 cards */
   /* Add media queries for responsive design */
+  
+}
+
+.card{
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+
 }
 
 /* Add any additional styles for your Card component here */
