@@ -19,8 +19,8 @@ const MyCarousel = () => {
             style={{ width: '100vw', height: '80vh', objectFit: 'cover' }}             
         />
         <Carousel.Caption>
-          <h3 className='text-light '>Dharmshala Ground</h3>
-          <p className='text-light '>The most beautiful architecture inspired by Tibetan style buildings.</p>
+          <h3 className='text-light '>DHARMASHALA GROUND</h3>
+          <p className='text-light '> unfolds magic with abundant boundaries, strategic brilliance, and awe-inspiring spectacle.</p>
         </Carousel.Caption>
         </Carousel.Item>
         
@@ -33,7 +33,7 @@ const MyCarousel = () => {
         />
 
         <Carousel.Caption className='text-light'>
-         <h3 className='text-light '>World Cup 2011 </h3>
+         <h3 className='text-light '>WORLD CUP-2011 </h3>
           <p className='text-light '>All good things are difficult to achieve; and bad things are very easy to get.”</p>
         </Carousel.Caption>
         </Carousel.Item>
@@ -47,8 +47,8 @@ const MyCarousel = () => {
         />
 
         <Carousel.Caption className='text-light'>
-          <h3 className='text-light '>Arena</h3>
-          <p className='text-light '>Large open structures that have space for athletic events and other kinds of entertainment.</p>
+          <h3 className='text-light '>ARENA</h3>
+          <p className='text-light '>Experience IPL's cricket brilliance: where bat meets ball in symphony.</p>
         </Carousel.Caption>
         </Carousel.Item>
         
@@ -61,8 +61,8 @@ const MyCarousel = () => {
         />
 
         <Carousel.Caption className='text-light'>
-          <h3 className='text-light '>Arena</h3>
-          <p className='text-light '>Large open structures that have space for athletic events and other kinds of entertainment.</p>
+          <h3 className='text-light '>UPCOMMING IPL SEASON</h3>
+          <p className='text-light '>In IPL, cheers echo louder with soaring sixes and everlasting cricketing fever.</p>
         </Carousel.Caption>
       </Carousel.Item>
       {/* Add more Carousel.Items as needed */}

@@ -39,7 +39,6 @@ export function Teams() {
 
   return (
     
-
     <div className="text-center" style={{backgroundImage:
       `url(${background})`,backgroundSize: 'cover'}}>
       <div style={{backgroundColor:'orangered',height:'55px'}}><h1 style={{textAlign:'center', fontFamily:'poppins',color:'white'}}> SQUADS </h1></div>
@@ -49,8 +48,7 @@ export function Teams() {
           {teamData.map((team) => (
             <Col key={team.id} className="d-flex justify-content-center" onClick={handleNavigation}>
               {/* Add 'd-flex justify-content-center' for centering */}
-              <Card className='teamCard' style={{ width: '30rem', textAlign: 'center',backgroundImage:
-      `url(${mainbackground})`}}>
+              <Card className='teamCard' style={{ width: '30rem', textAlign: 'center', backgroundColor:'#F3F8FF'}}>
                 <div className="d-flex justify-content-center align-items-center" style={{ height: '200px' }}>
                   <Card.Img                    
                     variant="top"

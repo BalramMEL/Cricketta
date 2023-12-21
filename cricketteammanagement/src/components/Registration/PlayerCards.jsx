@@ -4,6 +4,7 @@ import { Button, Card, Container, Modal, ModalTitle, Row } from 'react-bootstrap
 import { useNavigate } from 'react-router-dom';
 import { deletePlayer, fetchPlayerCards } from '../../services/RegistrationService';
 import dummyProfile from '../../images/dummyProfile.png'
+import { FaPlane } from 'react-icons/fa';
 
 
 const PlayerCards = () => {
@@ -51,15 +52,22 @@ const PlayerCards = () => {
               
             <Header text="Player Card " className="mb-5 "></Header>
               {
-                player.length !== 0 ? <div className='card-grid'>
+                player.length !== 0 ? <div className='card-grid mb-5'>
                       {
                           player.map((players) => {
                               return (
                                   <div className='card-wrapper mt-5'>                                    
                                     
-                                       <Card style={{ width: '13rem'}} key={players._id}>
+                                      <Card style={{ width: '13rem' }} className='card' key={players._id}>
+                                          
+                                        {(players.country !== 'India') && ( // Check if country is India to show the airplane icon
+                                              <FaPlane style={{ position: 'absolute', top: '1rem', left: '1rem', color: '', transform: 'rotate(-90deg)'}} />
+                                              
+                                         )}
+
+
                                         <Card.Img variant="top" src={dummyProfile}/>
-                                        <Card.Body className='d-flex align-items-center' style={{flexDirection: "column"}}>
+                                        <Card.Body className='d-flex align-items-center' style={{flexDirection: "column", backgroundColor: '#F2F1EB'}}>
                                               <Card.Title style={{ fontFamily: "sans-serif", fontSize: "1rem", fontWeight: "700" }}>
                                                   {players.firstName} {players.lastName}</Card.Title>
                                             <Card.Text>
@@ -72,7 +80,7 @@ const PlayerCards = () => {
                                       </Card>     
                                       
 
-                                           <div className='d-flex align-items-center justify-content-start mt-2 gap-2'>
+                                        <div className='d-flex align-items-center justify-content-center mt-3 gap-2' style={{ width: '13rem'}} >
                                           <Button variant="primary" onClick={() => {
                                               navigate(`/player/${players._id}`)
                                           }}>Update</Button>{' '}
